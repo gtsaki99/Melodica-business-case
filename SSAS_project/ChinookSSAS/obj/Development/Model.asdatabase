@@ -1,0 +1,754 @@
+{
+  "name": "ChinookSSAS",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/localhost;ChinookDW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "localhost",
+            "database": "ChinookDW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "sa",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DimAlbum",
+        "columns": [
+          {
+            "name": "AlbumKey",
+            "dataType": "int64",
+            "sourceColumn": "AlbumKey"
+          },
+          {
+            "name": "AlbumID",
+            "dataType": "int64",
+            "sourceColumn": "AlbumID"
+          },
+          {
+            "name": "AlbumName",
+            "dataType": "string",
+            "sourceColumn": "AlbumName"
+          },
+          {
+            "name": "ArtistKey",
+            "dataType": "int64",
+            "sourceColumn": "ArtistKey"
+          },
+          {
+            "name": "RowIsCurrent",
+            "dataType": "int64",
+            "sourceColumn": "RowIsCurrent"
+          },
+          {
+            "name": "RowStartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowStartDate"
+          },
+          {
+            "name": "RowEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowEndDate"
+          },
+          {
+            "name": "RowChangeReason",
+            "dataType": "string",
+            "sourceColumn": "RowChangeReason"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;ChinookDW\",",
+                "    dbo_DimAlbum = Source{[Schema=\"dbo\",Item=\"DimAlbum\"]}[Data]",
+                "in",
+                "    dbo_DimAlbum"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimArtist",
+        "columns": [
+          {
+            "name": "ArtistKey",
+            "dataType": "int64",
+            "sourceColumn": "ArtistKey"
+          },
+          {
+            "name": "ArtistID",
+            "dataType": "int64",
+            "sourceColumn": "ArtistID"
+          },
+          {
+            "name": "ArtistName",
+            "dataType": "string",
+            "sourceColumn": "ArtistName"
+          },
+          {
+            "name": "RowIsCurrent",
+            "dataType": "int64",
+            "sourceColumn": "RowIsCurrent"
+          },
+          {
+            "name": "RowStartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowStartDate"
+          },
+          {
+            "name": "RowEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowEndDate"
+          },
+          {
+            "name": "RowChangeReason",
+            "dataType": "string",
+            "sourceColumn": "RowChangeReason"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;ChinookDW\",",
+                "    dbo_DimArtist = Source{[Schema=\"dbo\",Item=\"DimArtist\"]}[Data]",
+                "in",
+                "    dbo_DimArtist"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimCustomer",
+        "columns": [
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "Company",
+            "dataType": "string",
+            "sourceColumn": "Company"
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "sourceColumn": "FirstName"
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "sourceColumn": "LastName"
+          },
+          {
+            "name": "CustomerCity",
+            "dataType": "string",
+            "sourceColumn": "CustomerCity"
+          },
+          {
+            "name": "CustomerPostalCode",
+            "dataType": "string",
+            "sourceColumn": "CustomerPostalCode"
+          },
+          {
+            "name": "CustomerCountry",
+            "dataType": "string",
+            "sourceColumn": "CustomerCountry"
+          },
+          {
+            "name": "RowIsCurrent",
+            "dataType": "int64",
+            "sourceColumn": "RowIsCurrent"
+          },
+          {
+            "name": "RowStartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowStartDate"
+          },
+          {
+            "name": "RowEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowEndDate"
+          },
+          {
+            "name": "RowChangeReason",
+            "dataType": "string",
+            "sourceColumn": "RowChangeReason"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;ChinookDW\",",
+                "    dbo_DimCustomer = Source{[Schema=\"dbo\",Item=\"DimCustomer\"]}[Data]",
+                "in",
+                "    dbo_DimCustomer"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimDate",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "FullDateUK",
+            "dataType": "string",
+            "sourceColumn": "FullDateUK"
+          },
+          {
+            "name": "FullDateUSA",
+            "dataType": "string",
+            "sourceColumn": "FullDateUSA"
+          },
+          {
+            "name": "DayOfMonth",
+            "dataType": "string",
+            "sourceColumn": "DayOfMonth"
+          },
+          {
+            "name": "DaySuffix",
+            "dataType": "string",
+            "sourceColumn": "DaySuffix"
+          },
+          {
+            "name": "DayName",
+            "dataType": "string",
+            "sourceColumn": "DayName"
+          },
+          {
+            "name": "DayOfWeekUSA",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeekUSA"
+          },
+          {
+            "name": "DayOfWeekUK",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeekUK"
+          },
+          {
+            "name": "DayOfWeekInMonth",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeekInMonth"
+          },
+          {
+            "name": "DayOfWeekInYear",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeekInYear"
+          },
+          {
+            "name": "DayOfQuarter",
+            "dataType": "string",
+            "sourceColumn": "DayOfQuarter"
+          },
+          {
+            "name": "DayOfYear",
+            "dataType": "string",
+            "sourceColumn": "DayOfYear"
+          },
+          {
+            "name": "WeekOfMonth",
+            "dataType": "string",
+            "sourceColumn": "WeekOfMonth"
+          },
+          {
+            "name": "WeekOfQuarter",
+            "dataType": "string",
+            "sourceColumn": "WeekOfQuarter"
+          },
+          {
+            "name": "WeekOfYear",
+            "dataType": "string",
+            "sourceColumn": "WeekOfYear"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName"
+          },
+          {
+            "name": "MonthOfQuarter",
+            "dataType": "string",
+            "sourceColumn": "MonthOfQuarter"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "string",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "QuarterName",
+            "dataType": "string",
+            "sourceColumn": "QuarterName"
+          },
+          {
+            "name": "Year",
+            "dataType": "string",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "YearName",
+            "dataType": "string",
+            "sourceColumn": "YearName"
+          },
+          {
+            "name": "MonthYear",
+            "dataType": "string",
+            "sourceColumn": "MonthYear"
+          },
+          {
+            "name": "MMYYYY",
+            "dataType": "string",
+            "sourceColumn": "MMYYYY"
+          },
+          {
+            "name": "FirstDayOfMonth",
+            "dataType": "dateTime",
+            "sourceColumn": "FirstDayOfMonth"
+          },
+          {
+            "name": "LastDayOfMonth",
+            "dataType": "dateTime",
+            "sourceColumn": "LastDayOfMonth"
+          },
+          {
+            "name": "FirstDayOfQuarter",
+            "dataType": "dateTime",
+            "sourceColumn": "FirstDayOfQuarter"
+          },
+          {
+            "name": "LastDayOfQuarter",
+            "dataType": "dateTime",
+            "sourceColumn": "LastDayOfQuarter"
+          },
+          {
+            "name": "FirstDayOfYear",
+            "dataType": "dateTime",
+            "sourceColumn": "FirstDayOfYear"
+          },
+          {
+            "name": "LastDayOfYear",
+            "dataType": "dateTime",
+            "sourceColumn": "LastDayOfYear"
+          },
+          {
+            "name": "IsHolidayUSA",
+            "dataType": "boolean",
+            "sourceColumn": "IsHolidayUSA"
+          },
+          {
+            "name": "IsWeekday",
+            "dataType": "boolean",
+            "sourceColumn": "IsWeekday"
+          },
+          {
+            "name": "HolidayUSA",
+            "dataType": "string",
+            "sourceColumn": "HolidayUSA"
+          },
+          {
+            "name": "IsHolidayUK",
+            "dataType": "boolean",
+            "sourceColumn": "IsHolidayUK"
+          },
+          {
+            "name": "HolidayUK",
+            "dataType": "string",
+            "sourceColumn": "HolidayUK"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;ChinookDW\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dbo_DimDate"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimGenre",
+        "columns": [
+          {
+            "name": "GenreKey",
+            "dataType": "int64",
+            "sourceColumn": "GenreKey"
+          },
+          {
+            "name": "GenreId",
+            "dataType": "int64",
+            "sourceColumn": "GenreId"
+          },
+          {
+            "name": "GenreName",
+            "dataType": "string",
+            "sourceColumn": "GenreName"
+          },
+          {
+            "name": "RowIsCurrent",
+            "dataType": "int64",
+            "sourceColumn": "RowIsCurrent"
+          },
+          {
+            "name": "RowStartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowStartDate"
+          },
+          {
+            "name": "RowEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowEndDate"
+          },
+          {
+            "name": "RowChangeReason",
+            "dataType": "string",
+            "sourceColumn": "RowChangeReason"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;ChinookDW\",",
+                "    dbo_DimGenre = Source{[Schema=\"dbo\",Item=\"DimGenre\"]}[Data]",
+                "in",
+                "    dbo_DimGenre"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimMediaType",
+        "columns": [
+          {
+            "name": "MediaTypeKey",
+            "dataType": "int64",
+            "sourceColumn": "MediaTypeKey"
+          },
+          {
+            "name": "MediaTypeID",
+            "dataType": "int64",
+            "sourceColumn": "MediaTypeID"
+          },
+          {
+            "name": "MediaTypeName",
+            "dataType": "string",
+            "sourceColumn": "MediaTypeName"
+          },
+          {
+            "name": "RowIsCurrent",
+            "dataType": "int64",
+            "sourceColumn": "RowIsCurrent"
+          },
+          {
+            "name": "RowStartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowStartDate"
+          },
+          {
+            "name": "RowEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowEndDate"
+          },
+          {
+            "name": "RowChangeReason",
+            "dataType": "string",
+            "sourceColumn": "RowChangeReason"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;ChinookDW\",",
+                "    dbo_DimMediaType = Source{[Schema=\"dbo\",Item=\"DimMediaType\"]}[Data]",
+                "in",
+                "    dbo_DimMediaType"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimTrack",
+        "columns": [
+          {
+            "name": "TrackKey",
+            "dataType": "int64",
+            "sourceColumn": "TrackKey"
+          },
+          {
+            "name": "TrackID",
+            "dataType": "int64",
+            "sourceColumn": "TrackID"
+          },
+          {
+            "name": "TrackName",
+            "dataType": "string",
+            "sourceColumn": "TrackName"
+          },
+          {
+            "name": "AlbumKey",
+            "dataType": "int64",
+            "sourceColumn": "AlbumKey"
+          },
+          {
+            "name": "MediaTypeKey",
+            "dataType": "int64",
+            "sourceColumn": "MediaTypeKey"
+          },
+          {
+            "name": "GenreKey",
+            "dataType": "int64",
+            "sourceColumn": "GenreKey"
+          },
+          {
+            "name": "AlbumId",
+            "dataType": "int64",
+            "sourceColumn": "AlbumId"
+          },
+          {
+            "name": "MediaTypedid",
+            "dataType": "int64",
+            "sourceColumn": "MediaTypedid"
+          },
+          {
+            "name": "GenreId",
+            "dataType": "int64",
+            "sourceColumn": "GenreId"
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "double",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "RowIsCurrent",
+            "dataType": "int64",
+            "sourceColumn": "RowIsCurrent"
+          },
+          {
+            "name": "RowStartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowStartDate"
+          },
+          {
+            "name": "RowEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RowEndDate"
+          },
+          {
+            "name": "RowChangeReason",
+            "dataType": "string",
+            "sourceColumn": "RowChangeReason"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;ChinookDW\",",
+                "    dbo_DimTrack = Source{[Schema=\"dbo\",Item=\"DimTrack\"]}[Data]",
+                "in",
+                "    dbo_DimTrack"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactInvoice",
+        "columns": [
+          {
+            "name": "InvoiceKey",
+            "dataType": "int64",
+            "sourceColumn": "InvoiceKey"
+          },
+          {
+            "name": "InvoiceLineKey",
+            "dataType": "int64",
+            "sourceColumn": "InvoiceLineKey"
+          },
+          {
+            "name": "ArtistKey",
+            "dataType": "int64",
+            "sourceColumn": "ArtistKey"
+          },
+          {
+            "name": "TrackKey",
+            "dataType": "int64",
+            "sourceColumn": "TrackKey"
+          },
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "InvoiceDateKey",
+            "dataType": "int64",
+            "sourceColumn": "InvoiceDateKey"
+          },
+          {
+            "name": "Total",
+            "dataType": "double",
+            "sourceColumn": "Total"
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "double",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;ChinookDW\",",
+                "    dbo_FactInvoice = Source{[Schema=\"dbo\",Item=\"FactInvoice\"]}[Data]",
+                "in",
+                "    dbo_FactInvoice"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "ffd5ca7e-0aac-447c-997b-2ed251f572fb",
+        "fromTable": "FactInvoice",
+        "fromColumn": "ArtistKey",
+        "toTable": "DimArtist",
+        "toColumn": "ArtistKey"
+      },
+      {
+        "name": "d8a1e454-124a-47cf-ba25-855988d3a35b",
+        "fromTable": "FactInvoice",
+        "fromColumn": "CustomerKey",
+        "toTable": "DimCustomer",
+        "toColumn": "CustomerKey"
+      },
+      {
+        "name": "595a1ab7-c295-4179-9baf-7ac9c29c0fa2",
+        "fromTable": "DimTrack",
+        "fromColumn": "GenreKey",
+        "toTable": "DimGenre",
+        "toColumn": "GenreKey"
+      },
+      {
+        "name": "78e2d7b9-8e4e-49b0-af73-872132faa6a8",
+        "fromTable": "DimTrack",
+        "fromColumn": "MediaTypeKey",
+        "toTable": "DimMediaType",
+        "toColumn": "MediaTypeKey"
+      },
+      {
+        "name": "e8e0e2fe-202b-47aa-a6d5-81167bf9ef5d",
+        "fromTable": "FactInvoice",
+        "fromColumn": "TrackKey",
+        "toTable": "DimTrack",
+        "toColumn": "TrackKey"
+      },
+      {
+        "name": "55549124-d4f1-4884-a0a0-80a10b7b5929",
+        "fromTable": "FactInvoice",
+        "fromColumn": "InvoiceDateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "dff7e4a2-ec5e-4afa-baeb-cfb0708452fc",
+        "fromTable": "DimAlbum",
+        "fromColumn": "ArtistKey",
+        "toTable": "DimArtist",
+        "toColumn": "ArtistKey"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+C:\Users\billi\source\repos\ChinookSSAS\ChinookSSAS\bin\Model.asdatabase
+C:\Users\billi\source\repos\ChinookSSAS\ChinookSSAS\bin\Model.deploymenttargets
+C:\Users\billi\source\repos\ChinookSSAS\ChinookSSAS\bin\Model.deploymentoptions
+C:\Users\billi\source\repos\ChinookSSAS\ChinookSSAS\obj\Development\ChinookSSAS.smproj.AssemblyReference.cache
+C:\Users\billi\source\repos\ChinookSSAS\ChinookSSAS\obj\Development\ChinookSSAS.smproj.CoreCompileInputs.cache
+C:\Users\billi\source\repos\ChinookSSAS\ChinookSSAS\obj\Development\Model.asdatabase
+C:\Users\billi\source\repos\ChinookSSAS\ChinookSSAS\obj\Development\Model.deploymentoptions
+C:\Users\billi\source\repos\ChinookSSAS\ChinookSSAS\obj\Development\Model.deploymenttargets
