@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/21/2023 9:28:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-FNDGJTL"
+  DTS:CreatorName="DESKTOP-FNDGJTL\Ilias"
+  DTS:DTSID="{BC5C5AF3-6355-4A57-BF11-40F937D9CA44}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1032"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{857F9AF7-FC3D-4980-9D1C-E97B73D70B3B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-FNDGJTL\MSSQLSERVER2023.Chinook]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F6A1B993-4FA6-44AD-8B63-C559DE8D77DC}"
+      DTS:ObjectName="DESKTOP-FNDGJTL\MSSQLSERVER2023.Chinook">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-FNDGJTL\MSSQLSERVER2023;Initial Catalog=Chinook;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{F6A1B993-4FA6-44AD-8B63-C559DE8D77DC}DESKTOP-FNDGJTL\MSSQLSERVER2023.Chinook;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables />
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
